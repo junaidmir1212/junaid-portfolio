@@ -2,13 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Muhammad Junaid Mir | Graduate BSc (Hons) Computer Science | AI, NLP & Software Projects",
+  title: "Muhammad Junaid Mir | BSc Computer Science Portfolio",
   description:
     "Portfolio of Muhammad Junaid Mir, a BSc (Hons) Computer Science graduate building software engineering, AI, NLP, and blockchain projects for real-world applications.",
   keywords: [
     "Muhammad Junaid Mir",
-    "Graduate BSc (Hons) Computer Science",
-    "BSc (Hons) Computer Science Portfolio",
+    "BSc Computer Science Graduate",
+    "Computer Science Portfolio",
     "AI Portfolio",
     "NLP Portfolio",
     "Blockchain Portfolio",
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   creator: "Muhammad Junaid Mir",
 
   openGraph: {
-    title: "Muhammad Junaid Mir | Graduate BSc (Hons) Computer Science Portfolio",
+    title: "Muhammad Junaid Mir | BSc Computer Science Graduate Portfolio",
     description:
       "BSc (Hons) Computer Science graduate portfolio featuring AI, NLP, software engineering, and blockchain projects.",
     url: "https://muhammadjuniadmir.vercel.app/",
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Junaid Mir | Graduate BSc (Hons) Computer Science Portfolio",
+    title: "Muhammad Junaid Mir | BSc Computer Science Graduate Portfolio",
     description:
       "Portfolio featuring AI, NLP, software engineering, and blockchain project work.",
     images: ["https://muhammadjuniadmir.vercel.app/og-image.jpg"],

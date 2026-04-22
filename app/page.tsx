@@ -733,7 +733,7 @@ export default function Page() {
             <p className="brand-name" style={{ margin: 0 }}>
               Muhammad Junaid Mir
             </p>
-            <p className="brand-sub">Graduate BSc (Hons) Computer Science Portfolio · AI · NLP · Software Projects</p>
+            <p className="brand-sub">BSc (Hons) Computer Science Graduate Portfolio · AI · NLP · Software Projects</p>
           </div>
 
           <div className="social-row">
