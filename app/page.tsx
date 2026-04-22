@@ -125,8 +125,8 @@ export default function Page() {
       <header className="topbar">
         <div className="container topbar-inner">
           <a href="#top" className="brand">
-            <div className="brand-badge">
-              <Code2 size={20} color="#67e8f9" />
+            <div className="profile-pic">
+              <img src="/profile.jpg" alt="Muhammad Junaid Mir" />
             </div>
             <div>
               <p className="brand-name">Muhammad Junaid Mir</p>
