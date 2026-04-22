@@ -85,7 +85,7 @@ const strengths = [
   {
     icon: <Code2 size={18} />,
     title: "Technical Foundation",
-    text: "Strong grounding in software engineering, object-oriented programming, and practical project implementation.",
+    text: "Solid grounding in software engineering, including object-oriented design, data structures, and application development, with hands-on experience delivering end-to-end projects using Python, Java, and modern development tools.",
   },
   {
     icon: <Brain size={18} />,
@@ -130,7 +130,7 @@ export default function Page() {
             </div>
             <div>
               <p className="brand-name">Muhammad Junaid Mir</p>
-              <p className="brand-sub">Graduate Software Engineer Portfolio</p>
+              <p className="brand-sub">BSc (Hons) Computer Science Graduate Portfolio</p>
             </div>
           </a>
 
@@ -171,10 +171,10 @@ export default function Page() {
               transition={{ duration: 0.55 }}
             >
               <div className="kicker">
-                <Brain size={16} /> Graduate Software Engineer · AI · NLP · UK Roles
+                <Brain size={16} /> BSc (Hons) Computer Science Graduate · AI · NLP · UK Roles
               </div>
 
-              <h1>Software engineer focused on practical, high-impact technical solutions.</h1>
+              <h1>BSc (Hons) Computer Science Graduate focused on practical, high-impact technical solutions.</h1>
 
               <p className="lead">
                 I am a final-year BSc (Hons) Computer Science student with hands-on project experience in
@@ -212,7 +212,7 @@ export default function Page() {
             >
               <p className="section-label">Current Focus</p>
               <div className="focus-list">
-                <div className="focus-item">Graduate Software Engineering Roles</div>
+                <div className="focus-item">BSc (Hons) Computer Science Graduate Roles</div>
                 <div className="focus-item">Machine Learning & NLP Systems</div>
                 <div className="focus-item">Blockchain Application Development</div>
                 <div className="focus-item">Technical Growth in UK Industry</div>
@@ -413,7 +413,7 @@ export default function Page() {
               <p className="section-label">Contact</p>
               <h2 className="section-title">Let’s connect</h2>
               <p className="section-copy">
-                I am currently open to graduate software engineering, AI, and technology roles in the UK.
+                I am currently open to BSc (Hons) Computer Science Graduate, AI, and technology roles in the UK.
                 Reach out if you would like to discuss opportunities, projects, or collaboration.
               </p>
 
@@ -512,7 +512,7 @@ export default function Page() {
             <p className="brand-name" style={{ margin: 0 }}>
               Muhammad Junaid Mir
             </p>
-            <p className="brand-sub">Graduate Software Engineer · AI · NLP · Portfolio</p>
+            <p className="brand-sub">BSc (Hons) Computer Science Graduate · AI · NLP · Portfolio</p>
           </div>
 
           <div className="social-row">
