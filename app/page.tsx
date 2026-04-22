@@ -13,7 +13,7 @@ import {
   Menu,
   X,
 } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const projects = [
   {
@@ -152,6 +152,16 @@ const fadeUp = {
 
 export default function Page() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [messageSent, setMessageSent] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get("success") === "true") {
+        setMessageSent(true);
+      }
+    }
+  }, []);
 
   return (
     <div className="page-shell" id="top">
@@ -216,13 +226,8 @@ export default function Page() {
               </p>
 
               <div className="cta-row">
-                <a
-                  className="btn-primary"
-                  href="https://github.com/junaidmir1212"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Github size={18} /> View GitHub
+                <a className="btn-primary" href="#projects">
+                  <Code2 size={18} /> View Projects
                 </a>
 
                 <a className="btn-secondary" href="/Muhammad_Junaid_Mir_CV.pdf" download>
@@ -232,6 +237,10 @@ export default function Page() {
                 <a className="btn-secondary" href="#contact">
                   <Mail size={18} /> Contact Me
                 </a>
+              </div>
+
+              <div style={{ marginTop: "1rem" }}>
+                <span className="highlight-pill">Open to Graduate Software Engineer roles in the UK</span>
               </div>
             </motion.div>
 
@@ -594,8 +603,8 @@ export default function Page() {
               <p className="section-label">Contact</p>
               <h2 className="section-title">Let’s connect</h2>
               <p className="section-copy">
-                I am currently open to Graduate Software Engineer, AI, and technology roles in the UK.
-                Reach out if you would like to discuss opportunities, projects, or collaboration.
+                I am currently open to Graduate Software Engineer, AI, and technology opportunities in the UK.
+                If you would like to discuss a role, project, or collaboration, feel free to get in touch.
               </p>
 
               <div
@@ -635,13 +644,40 @@ export default function Page() {
               <p className="section-label">Contact Form</p>
               <h2 className="section-title">Send a message</h2>
 
+              {messageSent && (
+                <div
+                  style={{
+                    marginTop: "1rem",
+                    marginBottom: "1rem",
+                    padding: "0.9rem 1rem",
+                    borderRadius: "14px",
+                    border: "1px solid rgba(34,197,94,0.35)",
+                    background: "rgba(34,197,94,0.08)",
+                    color: "#166534",
+                    fontSize: "0.95rem",
+                    fontWeight: 500,
+                  }}
+                >
+                  Your message has been sent successfully. Thank you — I’ll review it as soon as possible.
+                </div>
+              )}
+
               <form action="https://formsubmit.co/junaidmir1212@gmail.com" method="POST" className="form-grid">
                 <input type="hidden" name="_subject" value="New portfolio enquiry" />
                 <input type="hidden" name="_captcha" value="false" />
+                <input type="hidden" name="_template" value="table" />
                 <input
                   type="hidden"
                   name="_next"
-                  value="https://muhammadjuniadmir.vercel.app/"
+                  value="https://muhammadjuniadmir.vercel.app/?success=true#contact"
+                />
+
+                <input
+                  type="text"
+                  name="_honey"
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
                 />
 
                 <div className="form-row">
@@ -661,7 +697,7 @@ export default function Page() {
                     className="input"
                     type="text"
                     name="subject"
-                    placeholder="Opportunity, collaboration, or question"
+                    placeholder="Graduate role, collaboration, or project enquiry"
                     required
                   />
                 </label>
@@ -671,10 +707,14 @@ export default function Page() {
                   <textarea
                     className="textarea"
                     name="message"
-                    placeholder="Write your message here..."
+                    placeholder="Tell me a little about the opportunity or what you’d like to discuss..."
                     required
                   />
                 </label>
+
+                <p style={{ fontSize: "0.95rem", opacity: 0.8, marginTop: "-0.25rem" }}>
+                  I usually respond to professional enquiries by email.
+                </p>
 
                 <div className="actions-row">
                   <button className="btn-primary" type="submit">
@@ -693,7 +733,7 @@ export default function Page() {
             <p className="brand-name" style={{ margin: 0 }}>
               Muhammad Junaid Mir
             </p>
-            <p className="brand-sub">BSc (Hons) Computer Science Graduate · AI · NLP · Portfolio</p>
+            <p className="brand-sub">Graduate BSc (Hons) Computer Science Portfolio · AI · NLP · Software Projects</p>
           </div>
 
           <div className="social-row">
