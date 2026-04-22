@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://muhammadjuniadmir.vercel.app"),
+
   title: "Muhammad Junaid Mir | BSc Computer Science Portfolio",
   description:
     "Portfolio of Muhammad Junaid Mir, a BSc (Hons) Computer Science graduate building software engineering, AI, NLP, and blockchain projects for real-world applications.",
@@ -22,17 +24,18 @@ export const metadata: Metadata = {
     title: "Muhammad Junaid Mir | BSc Computer Science Graduate Portfolio",
     description:
       "BSc (Hons) Computer Science graduate portfolio featuring AI, NLP, software engineering, and blockchain projects.",
-    url: "https://muhammadjuniadmir.vercel.app/",
+    url: "/",
     siteName: "Muhammad Junaid Mir Portfolio",
     images: [
       {
-        url: "https://muhammadjuniadmir.vercel.app/og-image.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Muhammad Junaid Mir Portfolio",
       },
     ],
     type: "website",
+    locale: "en_GB",
   },
 
   twitter: {
@@ -40,7 +43,7 @@ export const metadata: Metadata = {
     title: "Muhammad Junaid Mir | BSc Computer Science Graduate Portfolio",
     description:
       "Portfolio featuring AI, NLP, software engineering, and blockchain project work.",
-    images: ["https://muhammadjuniadmir.vercel.app/og-image.jpg"],
+    images: ["/og-image.jpg"],
   },
 };
 
