@@ -4,12 +4,11 @@ import { useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
-  Blocks,
   Brain,
+  BriefcaseBusiness,
   ChevronRight,
   Code2,
   Download,
-  ExternalLink,
   Github,
   Linkedin,
   Mail,
@@ -23,21 +22,21 @@ const projects = [
     title: "Fake News Detection using NLP",
     category: "Machine Learning · NLP",
     shortDescription:
-      "A machine learning pipeline for classifying social media content as real or fake using NLP preprocessing, feature extraction, and classical ML models.",
+      "Built a machine learning pipeline to classify social media content as real or fake using NLP preprocessing, feature extraction, and supervised learning models.",
     impact:
-      "Achieved approximately 98% accuracy while addressing a real-world misinformation problem.",
+      "Achieved approximately 98% accuracy on a real-world misinformation classification problem.",
     stack: ["Python", "Scikit-learn", "Pandas", "NLP", "Logistic Regression", "Naive Bayes"],
     github:
       "https://github.com/junaidmir1212/Fake-News-Detection-on-Social-Media-Using-Natural-Language-Processing-NLP-",
     problem:
-      "Misinformation spreads rapidly on social platforms, and manual verification is too slow and resource intensive at scale.",
+      "Misinformation spreads rapidly across digital platforms, while manual verification is too slow and resource-intensive at scale.",
     solution:
-      "Built an NLP-driven classification workflow using preprocessing, vectorisation, and supervised learning to distinguish fake from real content.",
+      "Designed an NLP-based classification workflow using text cleaning, feature extraction, and supervised machine learning to automatically distinguish fake from real content.",
     highlights: [
-      "~98% model accuracy",
-      "Text cleaning and feature extraction",
-      "Comparative model evaluation",
-      "Strong real-world use case",
+      "~98% accuracy",
+      "Text preprocessing pipeline",
+      "Feature extraction and model comparison",
+      "Real-world misinformation use case",
     ],
   },
   {
@@ -45,37 +44,59 @@ const projects = [
     title: "Blockchain Event Ticketing DApp",
     category: "Blockchain · Smart Contracts",
     shortDescription:
-      "A decentralised ticketing system using smart contracts and NFT-based ticket validation to reduce duplication and fraud.",
+      "Developed a decentralised ticketing application using smart contracts and NFT-based validation to reduce duplication and fraud.",
     impact:
-      "Created a more secure and transparent ticket flow through decentralised validation.",
+      "Improved ticket security and transparency through decentralised ownership and validation logic.",
     stack: ["Solidity", "Web3", "JavaScript", "Smart Contracts", "NFTs"],
     github: "https://github.com/junaidmir1212/-Event-Ticketing-D-App",
     problem:
-      "Traditional ticketing systems are vulnerable to duplication, fraud, and poor transparency across ownership and validation.",
+      "Traditional ticketing systems are vulnerable to ticket duplication, resale fraud, and weak ownership transparency.",
     solution:
-      "Designed a decentralised architecture using smart contracts and NFT-based ticket ownership to ensure each ticket remains unique and traceable.",
+      "Built a decentralised architecture where tickets are represented as unique blockchain-based assets, enabling secure validation and traceable ownership.",
     highlights: [
-      "NFT-based validation",
+      "NFT-based ticket validation",
       "Fraud reduction focus",
       "Web3 integration",
-      "Secure transaction logic",
+      "Smart contract transaction logic",
     ],
   },
 ];
 
-const skills = [
-  "Python",
-  "Machine Learning",
-  "Natural Language Processing",
-  "Java",
-  "C#",
-  ".NET",
-  "SQL",
-  "Git/GitHub",
-  "Solidity",
-  "Web3",
-  "Problem Solving",
-  "Leadership",
+const skillGroups = [
+  {
+    title: "Languages & Development",
+    items: ["Python", "Java", "C#", ".NET", "JavaScript", "SQL"],
+  },
+  {
+    title: "AI & Data",
+    items: ["Machine Learning", "Natural Language Processing", "Pandas", "Scikit-learn"],
+  },
+  {
+    title: "Blockchain & Tools",
+    items: ["Solidity", "Web3", "Git/GitHub", "Smart Contracts"],
+  },
+  {
+    title: "Professional Skills",
+    items: ["Problem Solving", "Leadership", "Communication", "Decision-Making"],
+  },
+];
+
+const strengths = [
+  {
+    icon: <Code2 size={18} />,
+    title: "Technical Foundation",
+    text: "Strong grounding in software engineering, object-oriented programming, and practical project implementation.",
+  },
+  {
+    icon: <Brain size={18} />,
+    title: "Applied Problem Solving",
+    text: "Built solutions in machine learning, NLP, and blockchain with clear business and technical value.",
+  },
+  {
+    icon: <BriefcaseBusiness size={18} />,
+    title: "Leadership Experience",
+    text: "Developed decision-making, accountability, and operational leadership skills in fast-paced working environments.",
+  },
 ];
 
 const navItems = [
@@ -109,7 +130,7 @@ export default function Page() {
             </div>
             <div>
               <p className="brand-name">Muhammad Junaid Mir</p>
-              <p className="brand-sub">Software Engineer Portfolio</p>
+              <p className="brand-sub">Graduate Software Engineer Portfolio</p>
             </div>
           </a>
 
@@ -130,6 +151,7 @@ export default function Page() {
             {mobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
+
         <div className={`container mobile-nav ${mobileOpen ? "open" : ""}`}>
           {navItems.map((item) => (
             <a key={item.label} href={item.href} onClick={() => setMobileOpen(false)}>
@@ -142,23 +164,39 @@ export default function Page() {
       <main>
         <section className="hero">
           <div className="container hero-grid">
-            <motion.div initial="hidden" animate="visible" variants={fadeUp} transition={{ duration: 0.55 }}>
+            <motion.div
+              initial="hidden"
+              animate="visible"
+              variants={fadeUp}
+              transition={{ duration: 0.55 }}
+            >
               <div className="kicker">
-                <Brain size={16} /> Graduate Software Engineer · AI · NLP
+                <Brain size={16} /> Graduate Software Engineer · AI · NLP · UK Roles
               </div>
-              <h1>Building practical software systems with intelligence and impact.</h1>
+
+              <h1>Software engineer focused on practical, high-impact technical solutions.</h1>
+
               <p className="lead">
-                I am a final-year BSc (Hons) Computer Science student focused on software engineering,
-                machine learning, NLP, and blockchain applications. I build portfolio projects that solve
-                real problems and present them clearly for recruiters, hiring managers, and engineering teams.
+                I am a final-year BSc (Hons) Computer Science student with hands-on project experience in
+                machine learning, natural language processing, and blockchain systems. I build portfolio
+                projects with clear technical depth, real-world relevance, and strong presentation for
+                recruiters, hiring managers, and engineering teams.
               </p>
+
               <div className="cta-row">
-                <a className="btn-primary" href="https://github.com/junaidmir1212" target="_blank" rel="noreferrer">
+                <a
+                  className="btn-primary"
+                  href="https://github.com/junaidmir1212"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <Github size={18} /> View GitHub
                 </a>
+
                 <a className="btn-secondary" href="/Muhammad_Junaid_Mir_CV.pdf" download>
                   <Download size={18} /> Download CV
                 </a>
+
                 <a className="btn-secondary" href="#contact">
                   <Mail size={18} /> Contact Me
                 </a>
@@ -172,12 +210,12 @@ export default function Page() {
               variants={fadeUp}
               transition={{ duration: 0.55, delay: 0.12 }}
             >
-              <p className="section-label">Core Focus</p>
+              <p className="section-label">Current Focus</p>
               <div className="focus-list">
-                <div className="focus-item">Software Engineering</div>
-                <div className="focus-item">Machine Learning & NLP</div>
-                <div className="focus-item">Blockchain Systems</div>
-                <div className="focus-item">Graduate Roles in the UK</div>
+                <div className="focus-item">Graduate Software Engineering Roles</div>
+                <div className="focus-item">Machine Learning & NLP Systems</div>
+                <div className="focus-item">Blockchain Application Development</div>
+                <div className="focus-item">Technical Growth in UK Industry</div>
               </div>
             </motion.aside>
           </div>
@@ -198,30 +236,33 @@ export default function Page() {
               <p className="section-copy">
                 My work combines academic computing foundations with hands-on implementation across
                 machine learning, NLP, and blockchain. I aim to contribute to teams building software that
-                is useful, scalable, and technically well thought through.
+                is well designed, useful, and technically robust.
               </p>
               <p className="section-copy">
                 Alongside technical projects, I bring leadership and operational experience from fast-paced
-                environments, which strengthened my communication, responsibility, and decision-making.
+                environments, which strengthened my communication, accountability, and decision-making.
               </p>
             </motion.article>
 
             <motion.article
               className="section-card"
-              id="skills"
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
               variants={fadeUp}
               transition={{ duration: 0.5, delay: 0.08 }}
             >
-              <p className="section-label">Skills</p>
-              <h2 className="section-title">Technical toolkit</h2>
-              <div className="skill-grid">
-                {skills.map((skill) => (
-                  <span key={skill} className="skill-pill">
-                    {skill}
-                  </span>
+              <p className="section-label">What I Bring</p>
+              <h2 className="section-title">Why I add value early</h2>
+              <div className="strength-list">
+                {strengths.map((item) => (
+                  <div key={item.title} className="strength-item">
+                    <div className="strength-icon">{item.icon}</div>
+                    <div>
+                      <h3>{item.title}</h3>
+                      <p>{item.text}</p>
+                    </div>
+                  </div>
                 ))}
               </div>
             </motion.article>
@@ -321,6 +362,44 @@ export default function Page() {
           </div>
         </section>
 
+        <section className="section" id="skills">
+          <div className="container">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              variants={fadeUp}
+              transition={{ duration: 0.45 }}
+            >
+              <p className="section-label">Skills</p>
+              <h2 className="section-title">Technical toolkit</h2>
+            </motion.div>
+
+            <div className="skill-groups" style={{ marginTop: "1.25rem" }}>
+              {skillGroups.map((group) => (
+                <motion.article
+                  key={group.title}
+                  className="section-card"
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.2 }}
+                  variants={fadeUp}
+                  transition={{ duration: 0.45 }}
+                >
+                  <h3 style={{ marginTop: 0 }}>{group.title}</h3>
+                  <div className="skill-grid">
+                    {group.items.map((skill) => (
+                      <span key={skill} className="skill-pill">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
         <section className="section" id="contact">
           <div className="container contact-grid">
             <motion.article
@@ -338,7 +417,10 @@ export default function Page() {
                 Reach out if you would like to discuss opportunities, projects, or collaboration.
               </p>
 
-              <div className="social-row" style={{ marginTop: "1.2rem", flexDirection: "column", alignItems: "flex-start" }}>
+              <div
+                className="social-row"
+                style={{ marginTop: "1.2rem", flexDirection: "column", alignItems: "flex-start" }}
+              >
                 <a className="icon-link" href="mailto:junaidmir1212@gmail.com">
                   <Mail size={18} /> junaidmir1212@gmail.com
                 </a>
@@ -371,10 +453,15 @@ export default function Page() {
             >
               <p className="section-label">Contact Form</p>
               <h2 className="section-title">Send a message</h2>
+
               <form action="https://formsubmit.co/junaidmir1212@gmail.com" method="POST" className="form-grid">
                 <input type="hidden" name="_subject" value="New portfolio enquiry" />
                 <input type="hidden" name="_captcha" value="false" />
-                <input type="hidden" name="_next" value="https://junaidmir1212.github.io/" />
+                <input
+                  type="hidden"
+                  name="_next"
+                  value="https://junaid-portfolio-jade-one.vercel.app/"
+                />
 
                 <div className="form-row">
                   <label className="label">
@@ -389,12 +476,23 @@ export default function Page() {
 
                 <label className="label">
                   Subject
-                  <input className="input" type="text" name="subject" placeholder="Opportunity, collaboration, or question" required />
+                  <input
+                    className="input"
+                    type="text"
+                    name="subject"
+                    placeholder="Opportunity, collaboration, or question"
+                    required
+                  />
                 </label>
 
                 <label className="label">
                   Message
-                  <textarea className="textarea" name="message" placeholder="Write your message here..." required />
+                  <textarea
+                    className="textarea"
+                    name="message"
+                    placeholder="Write your message here..."
+                    required
+                  />
                 </label>
 
                 <div className="actions-row">
@@ -403,10 +501,6 @@ export default function Page() {
                   </button>
                 </div>
               </form>
-              <p className="form-note" style={{ marginTop: "0.9rem" }}>
-                Replace the CV PDF in the public folder with your latest file named
-                <strong> Muhammad_Junaid_Mir_CV.pdf</strong> before deploying.
-              </p>
             </motion.article>
           </div>
         </section>
@@ -415,14 +509,22 @@ export default function Page() {
       <footer className="footer">
         <div className="container footer-card">
           <div>
-            <p className="brand-name" style={{ margin: 0 }}>Muhammad Junaid Mir</p>
+            <p className="brand-name" style={{ margin: 0 }}>
+              Muhammad Junaid Mir
+            </p>
             <p className="brand-sub">Graduate Software Engineer · AI · NLP · Portfolio</p>
           </div>
+
           <div className="social-row">
             <a className="icon-link" href="https://github.com/junaidmir1212" target="_blank" rel="noreferrer">
               <Github size={18} /> GitHub
             </a>
-            <a className="icon-link" href="https://www.linkedin.com/in/muhammad-junaid-mir-081479266/" target="_blank" rel="noreferrer">
+            <a
+              className="icon-link"
+              href="https://www.linkedin.com/in/muhammad-junaid-mir-081479266/"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Linkedin size={18} /> LinkedIn
             </a>
             <a className="icon-link" href="mailto:junaidmir1212@gmail.com">
