@@ -460,7 +460,7 @@ export default function Page() {
                 <input
                   type="hidden"
                   name="_next"
-                  value="https://junaid-portfolio-jade-one.vercel.app/"
+                  value="https://muhammadjuniadmir.vercel.app/"
                 />
 
                 <div className="form-row">
