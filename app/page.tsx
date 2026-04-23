@@ -20,6 +20,10 @@ const projects = [
     id: "fake-news-detection",
     title: "Fake News Detection using NLP",
     category: "Machine Learning · NLP",
+    image: "/fake-news.jpg",
+    imageAlt: "Fake News Detection project thumbnail",
+    imageTransform: "scale(1.06)",
+    imageHoverTransform: "scale(1.1) translateX(-1%)",
     shortDescription:
       "Built a machine learning pipeline to classify social media content as real or fake using NLP preprocessing, TF-IDF feature extraction, and supervised learning models.",
     impact:
@@ -53,6 +57,10 @@ const projects = [
     id: "event-ticketing-dapp",
     title: "Blockchain Event Ticketing DApp",
     category: "Blockchain · Smart Contracts",
+    image: "/dapp.jpg",
+    imageAlt: "Blockchain Event Ticketing DApp project thumbnail",
+    imageTransform: "scale(1.12)",
+    imageHoverTransform: "scale(1.16) translateX(-4.5%)",
     shortDescription:
       "Developed a decentralised ticketing application using blockchain smart contracts and NFT-based tickets to reduce duplication, fraud, and ticket misuse.",
     impact:
@@ -79,6 +87,34 @@ const projects = [
       "Frontend integration with decentralised logic",
     ],
   },
+  {
+    id: "portfolio-website",
+    title: "Portfolio Website",
+    category: "Frontend · Personal Branding",
+    image: "/portfolio.jpg",
+    imageAlt: "Portfolio website project thumbnail",
+    imageTransform: "scale(1.12)",
+    imageHoverTransform: "scale(1.16) translateX(-4.8%)",
+    shortDescription:
+      "Designed and developed a modern personal portfolio website to present projects, technical strengths, and career profile in a professional, recruiter-friendly format.",
+    impact:
+      "Created a clean digital presence to showcase software engineering, NLP, and blockchain work with clear navigation and strong visual presentation.",
+    stack: ["Next.js", "TypeScript", "CSS", "Framer Motion", "Vercel"],
+    github: "https://github.com/junaidmir1212",
+    problem:
+      "A strong technical profile needs a clear and well-structured online presence that helps recruiters quickly understand skills, projects, and potential.",
+    approach:
+      "Built a responsive portfolio using modern frontend tools, structured content sections, smooth interactions, and project-focused presentation.",
+    outcome:
+      "Created a polished portfolio website that strengthens personal branding and presents technical work in a more professional and accessible way.",
+    highlights: [
+      "Responsive UI",
+      "Recruiter-friendly layout",
+      "Modern project showcase",
+      "Clean navigation and structure",
+      "Deployed online portfolio",
+    ],
+  },
 ];
 
 const skillGroups = [
@@ -88,7 +124,13 @@ const skillGroups = [
   },
   {
     title: "Machine Learning & NLP",
-    items: ["Machine Learning", "Natural Language Processing", "Scikit-learn", "Pandas", "TF-IDF"],
+    items: [
+      "Machine Learning",
+      "Natural Language Processing",
+      "Scikit-learn",
+      "Pandas",
+      "TF-IDF",
+    ],
   },
   {
     title: "Blockchain & Tools",
@@ -153,6 +195,7 @@ const fadeUp = {
 export default function Page() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [messageSent, setMessageSent] = useState(false);
+  const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -217,12 +260,16 @@ export default function Page() {
                 <Brain size={16} /> BSc (Hons) Computer Science Graduate · AI · NLP · UK Roles
               </div>
 
-              <h1>BSc (Hons) Computer Science Graduate building practical AI, NLP, and software engineering solutions.</h1>
+              <h1>
+                BSc (Hons) Computer Science Graduate building practical AI, NLP, and software
+                engineering solutions.
+              </h1>
 
               <p className="lead">
-                I am a UK-based BSc (Hons) Computer Science graduate with hands-on experience building machine learning,
-                NLP, and blockchain projects. My work focuses on solving real problems with clean implementation, strong
-                technical foundations, and recruiter-ready presentation.
+                I am a UK-based BSc (Hons) Computer Science graduate with hands-on experience
+                building machine learning, NLP, and blockchain projects. My work focuses on
+                solving real problems with clean implementation, strong technical foundations, and
+                recruiter-ready presentation.
               </p>
 
               <div className="cta-row">
@@ -240,7 +287,9 @@ export default function Page() {
               </div>
 
               <div style={{ marginTop: "1rem" }}>
-                <span className="highlight-pill">Open to Graduate Software Engineer roles in the UK</span>
+                <span className="highlight-pill">
+                  Open to Graduate Software Engineer roles in the UK
+                </span>
               </div>
             </motion.div>
 
@@ -276,13 +325,14 @@ export default function Page() {
               <p className="section-label">About</p>
               <h2 className="section-title">Technical depth with practical execution</h2>
               <p className="section-copy">
-                My work combines academic computing foundations with hands-on implementation across
-                machine learning, NLP, and blockchain. I aim to contribute to teams building software that
-                is well designed, useful, and technically robust.
+                My work combines academic computing foundations with hands-on implementation
+                across machine learning, NLP, and blockchain. I aim to contribute to teams
+                building software that is well designed, useful, and technically robust.
               </p>
               <p className="section-copy">
-                Alongside technical projects, I bring leadership and operational experience from fast-paced
-                environments, which strengthened my communication, accountability, and decision-making.
+                Alongside technical projects, I bring leadership and operational experience from
+                fast-paced environments, which strengthened my communication, accountability, and
+                decision-making.
               </p>
             </motion.article>
 
@@ -323,8 +373,8 @@ export default function Page() {
               <p className="section-label">Featured Projects</p>
               <h2 className="section-title">Case-study driven engineering work</h2>
               <p className="section-copy" style={{ maxWidth: "1000px", marginTop: "0.75rem" }}>
-                A selection of projects demonstrating applied machine learning, NLP,
-                blockchain development, and end-to-end technical implementation.
+                A selection of projects demonstrating applied machine learning, NLP, blockchain
+                development, and end-to-end technical implementation.
               </p>
             </motion.div>
 
@@ -339,40 +389,131 @@ export default function Page() {
               {projects.map((project, index) => (
                 <motion.article
                   key={project.id}
-                  className="section-card"
+                  className="section-card project-preview-card"
                   initial="hidden"
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.15 }}
                   variants={fadeUp}
                   transition={{ duration: 0.45, delay: index * 0.06 }}
+                  onMouseEnter={() => setHoveredProject(project.id)}
+                  onMouseLeave={() => setHoveredProject(null)}
+                  style={{
+                    padding: 0,
+                    overflow: "hidden",
+                    display: "flex",
+                    flexDirection: "column",
+                  }}
                 >
-                  <p className="section-label">{project.category}</p>
-                  <h3 style={{ marginTop: "0.35rem" }}>{project.title}</h3>
-                  <p style={{ marginTop: "0.85rem" }}>{project.shortDescription}</p>
+                  <div
+                    className="project-preview-image-wrap"
+                    style={{
+                      position: "relative",
+                      overflow: "hidden",
+                    }}
+                  >
+                    <img
+                      src={project.image}
+                      alt={project.imageAlt}
+                      className="project-preview-image"
+                      style={{
+                        width: "100%",
+                        height: "230px",
+                        objectFit: "cover",
+                        display: "block",
+                        transform:
+                          hoveredProject === project.id
+                            ? project.imageHoverTransform
+                            : project.imageTransform,
+                      }}
+                    />
 
-                  <div className="stack-row" style={{ marginTop: "1rem" }}>
-                    {project.stack.map((item) => (
-                      <span key={item} className="stack-pill">
-                        {item}
+                    <div
+                      style={{
+                        position: "absolute",
+                        inset: 0,
+                        background:
+                          "linear-gradient(to top, rgba(4,6,20,0.82), rgba(4,6,20,0.18), rgba(4,6,20,0.06))",
+                        pointerEvents: "none",
+                      }}
+                    />
+
+                    <div
+                      style={{
+                        position: "absolute",
+                        top: "1rem",
+                        left: "1rem",
+                        zIndex: 2,
+                      }}
+                    >
+                      <span
+                        className="highlight-pill"
+                        style={{
+                          backdropFilter: "blur(8px)",
+                          background: "rgba(10, 14, 34, 0.72)",
+                        }}
+                      >
+                        {project.highlights[0]}
                       </span>
-                    ))}
+                    </div>
+
+                    <div
+                      style={{
+                        position: "absolute",
+                        right: "1rem",
+                        bottom: "1rem",
+                        zIndex: 2,
+                      }}
+                    >
+                      <a
+                        href={`#${project.id}`}
+                        className="btn-small"
+                        style={{
+                          background: "rgba(10, 14, 34, 0.72)",
+                          backdropFilter: "blur(8px)",
+                          border: "1px solid rgba(255,255,255,0.12)",
+                        }}
+                      >
+                        View Case Study <ArrowUpRight size={16} />
+                      </a>
+                    </div>
                   </div>
 
-                  <div className="highlights-row" style={{ marginTop: "1rem" }}>
-                    {project.highlights.slice(0, 2).map((item) => (
-                      <span key={item} className="highlight-pill">
-                        {item}
-                      </span>
-                    ))}
-                  </div>
+                  <div
+                    style={{
+                      padding: "1.35rem",
+                      display: "flex",
+                      flexDirection: "column",
+                      height: "100%",
+                    }}
+                  >
+                    <p className="section-label">{project.category}</p>
+                    <h3 style={{ marginTop: "0.35rem" }}>{project.title}</h3>
+                    <p style={{ marginTop: "0.85rem" }}>{project.shortDescription}</p>
 
-                  <div className="actions-row" style={{ marginTop: "1.6rem" }}>
-                    <a className="btn-small" href={project.github} target="_blank" rel="noreferrer">
-                      <Github size={16} /> View GitHub
-                    </a>
-                    <a className="btn-secondary" href={`#${project.id}`}>
-                      View Case Study <ArrowUpRight size={16} />
-                    </a>
+                    <div className="stack-row" style={{ marginTop: "1rem" }}>
+                      {project.stack.slice(0, 5).map((item) => (
+                        <span key={item} className="stack-pill">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="highlights-row" style={{ marginTop: "1rem" }}>
+                      {project.highlights.slice(1, 3).map((item) => (
+                        <span key={item} className="highlight-pill">
+                          {item}
+                        </span>
+                      ))}
+                    </div>
+
+                    <div className="actions-row" style={{ marginTop: "1.4rem" }}>
+                      <a className="btn-small" href={project.github} target="_blank" rel="noreferrer">
+                        <Github size={16} /> View GitHub
+                      </a>
+                      <a className="btn-secondary" href={`#${project.id}`}>
+                        View Case Study <ArrowUpRight size={16} />
+                      </a>
+                    </div>
                   </div>
                 </motion.article>
               ))}
@@ -455,8 +596,8 @@ export default function Page() {
               <p className="section-label">Skills</p>
               <h2 className="section-title">Technical toolkit and core strengths</h2>
               <p className="section-copy" style={{ maxWidth: "760px", marginTop: "0.75rem" }}>
-                A structured overview of the technologies, methods, and professional strengths
-                I bring across software engineering, machine learning, NLP, and blockchain projects.
+                A structured overview of the technologies, methods, and professional strengths I
+                bring across software engineering, machine learning, NLP, and blockchain projects.
               </p>
             </motion.div>
 
@@ -555,7 +696,8 @@ export default function Page() {
                 }}
               >
                 I am actively looking for opportunities where I can contribute across software
-                engineering, AI, NLP, and technical project delivery while continuing to grow in a strong engineering environment.
+                engineering, AI, NLP, and technical project delivery while continuing to grow in a
+                strong engineering environment.
               </p>
 
               <div
@@ -603,8 +745,9 @@ export default function Page() {
               <p className="section-label">Contact</p>
               <h2 className="section-title">Let’s connect</h2>
               <p className="section-copy">
-                I am currently open to Graduate Software Engineer, AI, and technology opportunities in the UK.
-                If you would like to discuss a role, project, or collaboration, feel free to get in touch.
+                I am currently open to Graduate Software Engineer, AI, and technology
+                opportunities in the UK. If you would like to discuss a role, project, or
+                collaboration, feel free to get in touch.
               </p>
 
               <div
@@ -658,11 +801,16 @@ export default function Page() {
                     fontWeight: 500,
                   }}
                 >
-                  Your message has been sent successfully. Thank you — I’ll review it as soon as possible.
+                  Your message has been sent successfully. Thank you — I’ll review it as soon as
+                  possible.
                 </div>
               )}
 
-              <form action="https://formsubmit.co/junaidmir1212@gmail.com" method="POST" className="form-grid">
+              <form
+                action="https://formsubmit.co/junaidmir1212@gmail.com"
+                method="POST"
+                className="form-grid"
+              >
                 <input type="hidden" name="_subject" value="New portfolio enquiry" />
                 <input type="hidden" name="_captcha" value="false" />
                 <input type="hidden" name="_template" value="table" />
@@ -683,11 +831,23 @@ export default function Page() {
                 <div className="form-row">
                   <label className="label">
                     Name
-                    <input className="input" type="text" name="name" placeholder="Your name" required />
+                    <input
+                      className="input"
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                    />
                   </label>
                   <label className="label">
                     Email
-                    <input className="input" type="email" name="email" placeholder="your@email.com" required />
+                    <input
+                      className="input"
+                      type="email"
+                      name="email"
+                      placeholder="your@email.com"
+                      required
+                    />
                   </label>
                 </div>
 
@@ -733,11 +893,18 @@ export default function Page() {
             <p className="brand-name" style={{ margin: 0 }}>
               Muhammad Junaid Mir
             </p>
-            <p className="brand-sub">BSc (Hons) Computer Science Graduate Portfolio · AI · NLP · Software Projects</p>
+            <p className="brand-sub">
+              BSc (Hons) Computer Science Graduate Portfolio · AI · NLP · Software Projects
+            </p>
           </div>
 
           <div className="social-row">
-            <a className="icon-link" href="https://github.com/junaidmir1212" target="_blank" rel="noreferrer">
+            <a
+              className="icon-link"
+              href="https://github.com/junaidmir1212"
+              target="_blank"
+              rel="noreferrer"
+            >
               <Github size={18} /> GitHub
             </a>
             <a
