@@ -1,5 +1,5 @@
 "use client";
-
+import Lenis from "@studio-freight/lenis";
 import { motion } from "framer-motion";
 import {
   ArrowUpRight,
@@ -10,49 +10,51 @@ import {
   Github,
   Linkedin,
   Mail,
+  MapPin,
   Menu,
+  Sparkles,
   X,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
-const projects = [
-  {
-    id: "fake-news-detection",
-    title: "Fake News Detection using NLP",
-    category: "Machine Learning · NLP",
-    image: "/fake-news.jpg",
-    imageAlt: "Fake News Detection project thumbnail",
-    imageTransform: "scale(1.06)",
-    imageHoverTransform: "scale(1.1) translateX(-1%)",
-    shortDescription:
-      "Built a machine learning pipeline to classify social media content as real or fake using NLP preprocessing, TF-IDF feature extraction, and supervised learning models.",
-    impact:
-      "Achieved approximately 98% accuracy on a misinformation classification task and demonstrated how NLP can support scalable content verification.",
-    stack: [
-      "Python",
-      "Scikit-learn",
-      "Pandas",
-      "NLP",
-      "TF-IDF",
-      "Logistic Regression",
-      "Naive Bayes",
-    ],
-    github:
-      "https://github.com/junaidmir1212/Fake-News-Detection-on-Social-Media-Using-Natural-Language-Processing-NLP-",
-    problem:
-      "Misinformation spreads rapidly across digital platforms, while manual verification is slow and difficult to scale.",
-    approach:
-      "Designed an NLP-based text classification workflow using preprocessing, feature extraction, and supervised learning models to distinguish fake from real content.",
-    outcome:
-      "Achieved approximately 98% accuracy on a misinformation classification task and demonstrated how NLP can support scalable content verification.",
-    highlights: [
-      "~98% accuracy",
-      "Text cleaning and preprocessing",
-      "Feature extraction using TF-IDF",
-      "Model comparison across classifiers",
-      "Prediction pipeline for fake/real classification",
-    ],
-  },
+const featuredProject = {
+  id: "fake-news-detection",
+  title: "Fake News Detection using NLP",
+  category: "Flagship Project · Machine Learning · NLP",
+  image: "/fake-news.jpg",
+  imageAlt: "Fake News Detection project thumbnail",
+  imageTransform: "scale(1.06)",
+  imageHoverTransform: "scale(1.1) translateX(-1%)",
+  shortDescription:
+    "NLP-based misinformation classification system using text preprocessing, TF-IDF feature extraction, and supervised learning models.",
+  impact:
+    "Achieved approximately 98% accuracy on a misinformation classification task and demonstrated how NLP can support scalable content verification.",
+  stack: [
+    "Python",
+    "Scikit-learn",
+    "Pandas",
+    "NLP",
+    "TF-IDF",
+    "Logistic Regression",
+    "Naive Bayes",
+  ],
+  github:
+    "https://github.com/junaidmir1212/Fake-News-Detection-on-Social-Media-Using-Natural-Language-Processing-NLP-",
+  problem:
+    "Misinformation spreads rapidly across digital platforms, while manual verification is slow and difficult to scale.",
+  approach:
+    "Designed an NLP-based text classification workflow using preprocessing, feature extraction, and supervised learning models to distinguish fake from real content.",
+  outcome:
+    "Achieved approximately 98% accuracy on a misinformation classification task and demonstrated how NLP can support scalable content verification.",
+  highlights: [
+    "~98% accuracy",
+    "TF-IDF feature extraction",
+    "Supervised model comparison",
+    "End-to-end prediction workflow",
+  ],
+};
+
+const supportingProjects = [
   {
     id: "event-ticketing-dapp",
     title: "Blockchain Event Ticketing DApp",
@@ -60,9 +62,9 @@ const projects = [
     image: "/dapp.jpg",
     imageAlt: "Blockchain Event Ticketing DApp project thumbnail",
     imageTransform: "scale(1.12)",
-    imageHoverTransform: "scale(1.16) translateX(-4.5%)",
+    imageHoverTransform: "scale(1.16) translateX(-1%)",
     shortDescription:
-      "Developed a decentralised ticketing application using blockchain smart contracts and NFT-based tickets to reduce duplication, fraud, and ticket misuse.",
+      "Blockchain ticketing application using smart contracts and NFT-based validation to reduce duplication and fraud.",
     impact:
       "Created a proof-of-concept ticketing DApp showing how blockchain can improve trust, traceability, and ticket authenticity in event systems.",
     stack: [
@@ -82,9 +84,9 @@ const projects = [
       "Created a proof-of-concept ticketing DApp showing how blockchain can improve trust, traceability, and ticket authenticity in event systems.",
     highlights: [
       "Smart contract ticket issuance",
+      "NFT-based validation",
+      "Fraud-resistant workflow",
       "Blockchain-backed ownership verification",
-      "Fraud-resistant validation workflow",
-      "Frontend integration with decentralised logic",
     ],
   },
   {
@@ -94,11 +96,11 @@ const projects = [
     image: "/portfolio.jpg",
     imageAlt: "Portfolio website project thumbnail",
     imageTransform: "scale(1.12)",
-    imageHoverTransform: "scale(1.16) translateX(-4.8%)",
+    imageHoverTransform: "scale(1.16) translateX(-1%)",
     shortDescription:
-      "Designed and developed a modern personal portfolio website to present projects, technical strengths, and career profile in a professional, recruiter-friendly format.",
+      "Responsive personal portfolio built to showcase projects, technical strengths, and career profile clearly.",
     impact:
-      "Created a clean digital presence to showcase software engineering, NLP, and blockchain work with clear navigation and strong visual presentation.",
+      "Created a clean digital presence to showcase software engineering, NLP, and blockchain work with strong visual presentation and recruiter-friendly structure.",
     stack: ["Next.js", "TypeScript", "CSS", "Framer Motion", "Vercel"],
     github: "https://github.com/junaidmir1212",
     problem:
@@ -109,13 +111,14 @@ const projects = [
       "Created a polished portfolio website that strengthens personal branding and presents technical work in a more professional and accessible way.",
     highlights: [
       "Responsive UI",
-      "Recruiter-friendly layout",
+      "Recruiter-friendly structure",
       "Modern project showcase",
-      "Clean navigation and structure",
-      "Deployed online portfolio",
+      "Clean navigation",
     ],
   },
 ];
+
+const allProjects = [featuredProject, ...supportingProjects];
 
 const skillGroups = [
   {
@@ -124,21 +127,15 @@ const skillGroups = [
   },
   {
     title: "Machine Learning & NLP",
-    items: [
-      "Machine Learning",
-      "Natural Language Processing",
-      "Scikit-learn",
-      "Pandas",
-      "TF-IDF",
-    ],
+    items: ["Machine Learning", "NLP", "Scikit-learn", "Pandas", "TF-IDF"],
   },
   {
     title: "Blockchain & Tools",
     items: ["Solidity", "Web3.js", "Git", "GitHub", "Smart Contracts"],
   },
   {
-    title: "Software Engineering Strengths",
-    items: ["Problem Solving", "OOP", "Application Development", "Leadership", "Communication"],
+    title: "Professional Strengths",
+    items: ["Problem Solving", "OOP", "Leadership", "Communication", "Delivery"],
   },
 ];
 
@@ -146,17 +143,17 @@ const strengths = [
   {
     icon: <Code2 size={18} />,
     title: "Technical Foundation",
-    text: "Solid grounding in software engineering, including object-oriented design, data structures, and application development, with hands-on experience delivering end-to-end projects using Python, Java, and modern development tools.",
+    text: "Grounded in software engineering, object-oriented design, application development, and hands-on technical delivery.",
   },
   {
     icon: <Brain size={18} />,
-    title: "Applied Problem Solving",
-    text: "Built solutions in machine learning, NLP, and blockchain with clear business and technical value.",
+    title: "Applied AI & NLP",
+    text: "Built projects that apply machine learning and natural language processing to real classification and decision problems.",
   },
   {
     icon: <BriefcaseBusiness size={18} />,
-    title: "Leadership Experience",
-    text: "Developed decision-making, accountability, and operational leadership skills in fast-paced working environments.",
+    title: "Professional Readiness",
+    text: "Bring accountability, communication, and operational discipline developed through real-world work environments.",
   },
 ];
 
@@ -166,17 +163,24 @@ const credibilityItems = [
     text: "Strong academic foundation in software engineering, programming, and applied computing with hands-on project delivery.",
   },
   {
-    title: "Dissertation / Final Project Focus",
-    text: "Developed a Fake News Detection system using Natural Language Processing and machine learning techniques with approximately 98% accuracy.",
+    title: "Flagship ML/NLP Project",
+    text: "Developed a Fake News Detection system using NLP and machine learning techniques with approximately 98% accuracy.",
   },
   {
-    title: "Project-Based Technical Proof",
+    title: "Project-Based Proof of Ability",
     text: "Built portfolio projects across machine learning, NLP, blockchain, and decentralised applications with clear engineering value.",
   },
   {
-    title: "Leadership & Professional Experience",
-    text: "Brings communication, accountability, and decision-making skills developed through real-world leadership and operational roles.",
+    title: "Leadership & Communication",
+    text: "Developed communication, accountability, and decision-making skills through real operational and leadership experience.",
   },
+];
+
+const quickStats = [
+  { label: "Degree", value: "BSc (Hons) CS" },
+  { label: "Flagship Result", value: "~98% Accuracy" },
+  { label: "Focus Areas", value: "AI · NLP · Blockchain" },
+  { label: "Availability", value: "Open to UK Roles" },
 ];
 
 const navItems = [
@@ -204,6 +208,20 @@ export default function Page() {
         setMessageSent(true);
       }
     }
+    // Smooth scroll (Lenis)
+    const lenis = new Lenis({
+      duration: 1.1,
+      easing: (t: number) => 1 - Math.pow(1 - t, 3),
+    });
+    function raf(time: number) {
+      lenis.raf(time);
+    requestAnimationFrame(raf);
+  }
+  requestAnimationFrame(raf);
+
+  return () => {
+    lenis.destroy();
+  };
   }, []);
 
   return (
@@ -257,24 +275,25 @@ export default function Page() {
               transition={{ duration: 0.55 }}
             >
               <div className="kicker">
-                <Brain size={16} /> BSc (Hons) Computer Science Graduate · AI · NLP · UK Roles
+                <Sparkles size={16} /> Graduate Software Engineer · AI · NLP · Blockchain
               </div>
 
               <h1>
-                BSc (Hons) Computer Science Graduate building practical AI, NLP, and software
-                engineering solutions.
+                Building practical software, AI, and NLP solutions with strong
+                technical foundations.
               </h1>
 
               <p className="lead">
-                I am a UK-based BSc (Hons) Computer Science graduate with hands-on experience
-                building machine learning, NLP, and blockchain projects. My work focuses on
-                solving real problems with clean implementation, strong technical foundations, and
-                recruiter-ready presentation.
+                I am a UK-based BSc (Hons) Computer Science graduate with hands-on
+                experience across machine learning, NLP, blockchain, and software
+                engineering projects. My portfolio is built to demonstrate practical
+                implementation, clean presentation, and recruiter-ready technical
+                value.
               </p>
 
               <div className="cta-row">
                 <a className="btn-primary" href="#projects">
-                  <Code2 size={18} /> View Projects
+                  <Code2 size={18} /> Explore Projects
                 </a>
 
                 <a className="btn-secondary" href="/Muhammad_Junaid_Mir_CV.pdf" download>
@@ -286,9 +305,13 @@ export default function Page() {
                 </a>
               </div>
 
-              <div style={{ marginTop: "1rem" }}>
+              <div className="highlights-row" style={{ marginTop: "1rem" }}>
                 <span className="highlight-pill">
-                  Open to Graduate Software Engineer roles in the UK
+                  Open to Graduate Software Engineer roles
+                </span>
+                <span className="highlight-pill">
+                  <MapPin size={14} style={{ marginRight: 6, verticalAlign: "middle" }} />
+                  UK-based
                 </span>
               </div>
             </motion.div>
@@ -302,13 +325,41 @@ export default function Page() {
             >
               <p className="section-label">Current Focus</p>
               <div className="focus-list">
-                <div className="focus-item">BSc (Hons) Computer Science Graduate Roles</div>
+                <div className="focus-item">Graduate Software Engineering Opportunities</div>
                 <div className="focus-item">Machine Learning & NLP Systems</div>
-                <div className="focus-item">Blockchain Application Development</div>
-                <div className="focus-item">End-to-End Project Delivery</div>
-                <div className="focus-item">Technical Growth in UK Industry</div>
+                <div className="focus-item">Modern Frontend & Full Project Delivery</div>
+                <div className="focus-item">Blockchain & Smart Contract Applications</div>
+                <div className="focus-item">Professional Growth in UK Industry</div>
               </div>
             </motion.aside>
+          </div>
+        </section>
+
+        <section className="section">
+          <div className="container">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.2 }}
+              variants={fadeUp}
+              transition={{ duration: 0.45 }}
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
+                gap: "1rem",
+              }}
+            >
+              {quickStats.map((item) => (
+                <article
+                  key={item.label}
+                  className="section-card"
+                  style={{ padding: "1.25rem" }}
+                >
+                  <p className="section-label">{item.label}</p>
+                  <h3 style={{ marginTop: "0.55rem", marginBottom: 0 }}>{item.value}</h3>
+                </article>
+              ))}
+            </motion.div>
           </div>
         </section>
 
@@ -325,14 +376,15 @@ export default function Page() {
               <p className="section-label">About</p>
               <h2 className="section-title">Technical depth with practical execution</h2>
               <p className="section-copy">
-                My work combines academic computing foundations with hands-on implementation
-                across machine learning, NLP, and blockchain. I aim to contribute to teams
-                building software that is well designed, useful, and technically robust.
+                My work combines academic computing foundations with hands-on
+                implementation across machine learning, NLP, blockchain, and
+                modern web technologies. I aim to contribute to teams building
+                software that is useful, robust, and well engineered.
               </p>
               <p className="section-copy">
-                Alongside technical projects, I bring leadership and operational experience from
-                fast-paced environments, which strengthened my communication, accountability, and
-                decision-making.
+                Alongside technical work, I bring leadership and operational
+                experience from fast-paced environments, which strengthened my
+                accountability, communication, and decision-making.
               </p>
             </motion.article>
 
@@ -345,7 +397,7 @@ export default function Page() {
               transition={{ duration: 0.5, delay: 0.08 }}
             >
               <p className="section-label">What I Bring</p>
-              <h2 className="section-title">Why I add value early</h2>
+              <h2 className="section-title">Why I can add value early</h2>
               <div className="strength-list">
                 {strengths.map((item) => (
                   <div key={item.title} className="strength-item">
@@ -371,12 +423,119 @@ export default function Page() {
               transition={{ duration: 0.45 }}
             >
               <p className="section-label">Featured Projects</p>
-              <h2 className="section-title">Case-study driven engineering work</h2>
-              <p className="section-copy" style={{ maxWidth: "1000px", marginTop: "0.75rem" }}>
-                A selection of projects demonstrating applied machine learning, NLP, blockchain
-                development, and end-to-end technical implementation.
+              <h2 className="section-title">Selected engineering work</h2>
+              <p
+                className="section-copy"
+                style={{ maxWidth: "1000px", marginTop: "0.75rem" }}
+              >
+                A curated selection of projects demonstrating machine learning,
+                NLP, blockchain, frontend engineering, and end-to-end technical
+                execution.
               </p>
             </motion.div>
+
+            <motion.article
+              className="section-card project-preview-card featured-project-card"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.15 }}
+              variants={fadeUp}
+              transition={{ duration: 0.45 }}
+              onMouseEnter={() => setHoveredProject(featuredProject.id)}
+              onMouseLeave={() => setHoveredProject(null)}
+              style={{
+                padding: 0,
+                overflow: "hidden",
+                display: "grid",
+                gridTemplateColumns: "minmax(0, 1.1fr) minmax(320px, 0.9fr)",
+                alignItems: "start",
+                marginTop: "1.5rem",
+              }}
+            >
+              <div className="project-preview-image-wrap" style={{ minHeight: "100%" }}>
+                <img
+                  src={featuredProject.image}
+                  alt={featuredProject.imageAlt}
+                  className="project-preview-image"
+                  style={{
+                    width: "100%",
+                    height: "600px",
+                    minHeight: "460px",
+                    objectFit: "cover",
+                    display: "block",
+                    transform:
+                      hoveredProject === featuredProject.id
+                        ? featuredProject.imageHoverTransform
+                        : featuredProject.imageTransform,
+                  }}
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    inset: 0,
+                    background:
+                      "linear-gradient(to top, rgba(4,6,20,0.82), rgba(4,6,20,0.15), rgba(4,6,20,0.05))",
+                    pointerEvents: "none",
+                  }}
+                />
+                <div style={{ position: "absolute", top: "1rem", left: "1rem", zIndex: 2 }}>
+                  <span
+                    className="highlight-pill"
+                    style={{
+                      backdropFilter: "blur(8px)",
+                      background: "rgba(10, 14, 34, 0.72)",
+                    }}
+                  >
+                    {featuredProject.highlights[0]}
+                  </span>
+                </div>
+              </div>
+
+              <div style={{ padding: "1.8rem", display: "flex", flexDirection: "column", justifyContent: "flex-start", alignSelf: "start", }}>
+                <p className="section-label">{featuredProject.category}</p>
+                <h3 style={{ fontSize: "2rem", marginTop: "0.45rem", marginBottom: 0 }}>
+                  {featuredProject.title}
+                </h3>
+
+                <p style={{ marginTop: "1rem", color: "var(--muted)", lineHeight: 1.8 }}>
+                  {featuredProject.shortDescription}
+                </p>
+
+                <p style={{ marginTop: "0.9rem", color: "var(--muted)", lineHeight: 1.8 }}>
+                  {featuredProject.impact}
+                </p>
+
+                <div className="stack-row" style={{ marginTop: "1rem" }}>
+                  {featuredProject.stack.slice(0, 6).map((item) => (
+                    <span key={item} className="stack-pill">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="highlights-row" style={{ marginTop: "1rem" }}>
+                  {featuredProject.highlights.slice(1).map((item) => (
+                    <span key={item} className="highlight-pill">
+                      {item}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="actions-row" style={{ marginTop: "1.5rem" }}>
+                  <a
+                    className="btn-small"
+                    href={featuredProject.github}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <Github size={16} /> View GitHub
+                  </a>
+                  <a className="btn-secondary" href={`#${featuredProject.id}`}>
+                    View Case Study <ArrowUpRight size={16} />
+                  </a>
+                </div>
+              </div>
+            </motion.article>
 
             <div
               style={{
@@ -386,7 +545,7 @@ export default function Page() {
                 marginTop: "1.5rem",
               }}
             >
-              {projects.map((project, index) => (
+              {supportingProjects.map((project, index) => (
                 <motion.article
                   key={project.id}
                   className="section-card project-preview-card"
@@ -404,13 +563,7 @@ export default function Page() {
                     flexDirection: "column",
                   }}
                 >
-                  <div
-                    className="project-preview-image-wrap"
-                    style={{
-                      position: "relative",
-                      overflow: "hidden",
-                    }}
-                  >
+                  <div className="project-preview-image-wrap" style={{ position: "relative" }}>
                     <img
                       src={project.image}
                       alt={project.imageAlt}
@@ -437,14 +590,7 @@ export default function Page() {
                       }}
                     />
 
-                    <div
-                      style={{
-                        position: "absolute",
-                        top: "1rem",
-                        left: "1rem",
-                        zIndex: 2,
-                      }}
-                    >
+                    <div style={{ position: "absolute", top: "1rem", left: "1rem", zIndex: 2 }}>
                       <span
                         className="highlight-pill"
                         style={{
@@ -456,14 +602,7 @@ export default function Page() {
                       </span>
                     </div>
 
-                    <div
-                      style={{
-                        position: "absolute",
-                        right: "1rem",
-                        bottom: "1rem",
-                        zIndex: 2,
-                      }}
-                    >
+                    <div style={{ position: "absolute", right: "1rem", bottom: "1rem", zIndex: 2 }}>
                       <a
                         href={`#${project.id}`}
                         className="btn-small"
@@ -488,7 +627,15 @@ export default function Page() {
                   >
                     <p className="section-label">{project.category}</p>
                     <h3 style={{ marginTop: "0.35rem" }}>{project.title}</h3>
-                    <p style={{ marginTop: "0.85rem" }}>{project.shortDescription}</p>
+                    <p
+                      style={{
+                        marginTop: "0.85rem",
+                        color: "var(--muted)",
+                        lineHeight: 1.75,
+                      }}
+                    >
+                      {project.shortDescription}
+                    </p>
 
                     <div className="stack-row" style={{ marginTop: "1rem" }}>
                       {project.stack.slice(0, 5).map((item) => (
@@ -498,16 +645,13 @@ export default function Page() {
                       ))}
                     </div>
 
-                    <div className="highlights-row" style={{ marginTop: "1rem" }}>
-                      {project.highlights.slice(1, 3).map((item) => (
-                        <span key={item} className="highlight-pill">
-                          {item}
-                        </span>
-                      ))}
-                    </div>
-
                     <div className="actions-row" style={{ marginTop: "1.4rem" }}>
-                      <a className="btn-small" href={project.github} target="_blank" rel="noreferrer">
+                      <a
+                        className="btn-small"
+                        href={project.github}
+                        target="_blank"
+                        rel="noreferrer"
+                      >
                         <Github size={16} /> View GitHub
                       </a>
                       <a className="btn-secondary" href={`#${project.id}`}>
@@ -520,7 +664,7 @@ export default function Page() {
             </div>
 
             <div style={{ marginTop: "1.75rem", display: "grid", gap: "1.5rem" }}>
-              {projects.map((project, index) => (
+              {allProjects.map((project, index) => (
                 <motion.article
                   key={`${project.id}-case-study`}
                   id={project.id}
@@ -529,7 +673,7 @@ export default function Page() {
                   whileInView="visible"
                   viewport={{ once: true, amount: 0.15 }}
                   variants={fadeUp}
-                  transition={{ duration: 0.45, delay: index * 0.06 }}
+                  transition={{ duration: 0.45, delay: index * 0.05 }}
                 >
                   <p className="section-label">Detailed Case Study</p>
                   <h3>{project.title}</h3>
@@ -595,9 +739,13 @@ export default function Page() {
             >
               <p className="section-label">Skills</p>
               <h2 className="section-title">Technical toolkit and core strengths</h2>
-              <p className="section-copy" style={{ maxWidth: "760px", marginTop: "0.75rem" }}>
-                A structured overview of the technologies, methods, and professional strengths I
-                bring across software engineering, machine learning, NLP, and blockchain projects.
+              <p
+                className="section-copy"
+                style={{ maxWidth: "760px", marginTop: "0.75rem" }}
+              >
+                A structured overview of the technologies, methods, and professional
+                strengths I bring across software engineering, machine learning, NLP,
+                and blockchain projects.
               </p>
             </motion.div>
 
@@ -638,9 +786,13 @@ export default function Page() {
             >
               <p className="section-label">Credibility</p>
               <h2 className="section-title">Why I am ready to add value</h2>
-              <p className="section-copy" style={{ maxWidth: "760px", marginTop: "0.75rem" }}>
-                Beyond technical skills, I bring academic depth, project proof, and practical
-                experience that supports early contribution in graduate software engineering roles.
+              <p
+                className="section-copy"
+                style={{ maxWidth: "760px", marginTop: "0.75rem" }}
+              >
+                Beyond technical skills, I bring academic depth, project proof, and
+                practical experience that supports early contribution in graduate
+                software engineering roles.
               </p>
             </motion.div>
 
@@ -686,7 +838,7 @@ export default function Page() {
             >
               <p className="section-label">Open to Opportunities</p>
               <h2 className="section-title" style={{ maxWidth: "760px", margin: "0 auto" }}>
-                Currently seeking Graduate BSc (Hons) Computer Science opportunities in the UK
+                Ready to contribute in a strong graduate engineering environment
               </h2>
               <p
                 className="section-copy"
@@ -695,9 +847,9 @@ export default function Page() {
                   margin: "1rem auto 0 auto",
                 }}
               >
-                I am actively looking for opportunities where I can contribute across software
-                engineering, AI, NLP, and technical project delivery while continuing to grow in a
-                strong engineering environment.
+                I am actively seeking graduate opportunities where I can contribute
+                across software engineering, AI, NLP, and technical project delivery
+                while continuing to grow within a high-quality team.
               </p>
 
               <div
@@ -746,8 +898,8 @@ export default function Page() {
               <h2 className="section-title">Let’s connect</h2>
               <p className="section-copy">
                 I am currently open to Graduate Software Engineer, AI, and technology
-                opportunities in the UK. If you would like to discuss a role, project, or
-                collaboration, feel free to get in touch.
+                opportunities in the UK. If you would like to discuss a role, project,
+                or collaboration, feel free to get in touch.
               </p>
 
               <div
@@ -801,8 +953,8 @@ export default function Page() {
                     fontWeight: 500,
                   }}
                 >
-                  Your message has been sent successfully. Thank you — I’ll review it as soon as
-                  possible.
+                  Your message has been sent successfully. Thank you — I’ll review
+                  it as soon as possible.
                 </div>
               )}
 
@@ -894,7 +1046,8 @@ export default function Page() {
               Muhammad Junaid Mir
             </p>
             <p className="brand-sub">
-              BSc (Hons) Computer Science Graduate Portfolio · AI · NLP · Software Projects
+              BSc (Hons) Computer Science Graduate Portfolio · AI · NLP · Software
+              Projects
             </p>
           </div>
 
