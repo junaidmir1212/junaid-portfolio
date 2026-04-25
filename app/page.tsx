@@ -90,6 +90,40 @@ const supportingProjects = [
     ],
   },
   {
+  id: "database-driven-sql-system",
+  title: "Database-Driven Application (SQL System)",
+  category: "Database Engineering · SQL",
+  image: "/database.jpg",
+  imageAlt: "Database-driven SQL system project thumbnail",
+  imageTransform: "scale(1.1)",
+  imageHoverTransform: "scale(1.15) translateX(-1%)",
+  shortDescription:
+    "Relational database system designed for structured data management, optimized queries, normalization, and efficient data operations.",
+  impact:
+    "Designed a reliable SQL-based system that improved data integrity, reduced redundancy, and supported efficient retrieval, filtering, and update operations.",
+  stack: [
+    "SQL",
+    "Relational Databases",
+    "Database Design",
+    "Normalization",
+    "Query Optimization",
+  ],
+  github: "https://github.com/junaidmir1212",
+  problem:
+    "Data-driven systems can become inefficient when information is stored with duplication, weak structure, and poor query design, making retrieval and updates slower and less reliable.",
+  approach:
+    "Designed a relational database schema using normalization principles to reduce redundancy and improve consistency. Developed SQL queries for retrieval, filtering, and updates while focusing on clean table relationships, logical constraints, and efficient data handling.",
+  outcome:
+    "Delivered a structured database solution with improved data integrity, cleaner data organization, and efficient SQL operations suitable for future application integration.",
+  highlights: [
+    "Normalized relational schema",
+    "Optimized SQL queries",
+    "Efficient data retrieval and filtering",
+    "Improved data integrity",
+    "Reduced redundancy",
+  ],
+},
+  {
     id: "portfolio-website",
     title: "Portfolio Website",
     category: "Frontend · Personal Branding",
@@ -102,7 +136,7 @@ const supportingProjects = [
     impact:
       "Created a clean digital presence to showcase software engineering, NLP, and blockchain work with strong visual presentation and recruiter-friendly structure.",
     stack: ["Next.js", "TypeScript", "CSS", "Framer Motion", "Vercel"],
-    github: "https://github.com/junaidmir1212",
+    github: "https://github.com/junaidmir1212/junaid-portfolio.git",
     problem:
       "A strong technical profile needs a clear and well-structured online presence that helps recruiters quickly understand skills, projects, and potential.",
     approach:
@@ -123,7 +157,7 @@ const allProjects = [featuredProject, ...supportingProjects];
 const skillGroups = [
   {
     title: "Programming & Development",
-    items: ["Python", "Java", "C#", ".NET", "JavaScript", "SQL"],
+    items: ["Python", "Java", "C#", ".NET", "JavaScript", "SQL", "Database Design"],
   },
   {
     title: "Machine Learning & NLP",
@@ -168,7 +202,7 @@ const credibilityItems = [
   },
   {
     title: "Project-Based Proof of Ability",
-    text: "Built portfolio projects across machine learning, NLP, blockchain, and decentralised applications with clear engineering value.",
+    text: "Built portfolio projects across machine learning, NLP, blockchain, relational database systems and decentralised applications with clear engineering value.",
   },
   {
     title: "Leadership & Communication",
