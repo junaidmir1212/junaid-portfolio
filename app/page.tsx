@@ -150,6 +150,46 @@ const supportingProjects = [
       "Clean navigation",
     ],
   },
+  {
+    id: "graduate-career-hub",
+    title: "Graduate Career Hub",
+    category: "Professional Development · Career Platform",
+    image: "/career-hub.jpg",
+    imageAlt: "Graduate Career Hub dashboard thumbnail",
+    imageTransform: "scale(1.1)",
+    imageHoverTransform: "scale(1.15) translateX(-1%)",
+
+    shortDescription:
+      "Career development platform used to access graduate opportunities, optimise CVs, and manage structured job applications.",
+
+    impact:
+      "Strengthened job search strategy, improved CV quality through iterative feedback, and increased readiness for graduate-level recruitment processes.",
+
+    stack: [
+      "Career Strategy",
+      "CV Optimisation",
+      "Job Applications",
+      "Professional Development",
+      "Self-Management",
+    ],
+
+    github: "https://github.com/junaidmir1212/graduate-career-hub.git",
+    problem:
+      "Graduate job searching can be unstructured, with inconsistent applications, weak CV targeting, and limited visibility into relevant opportunities.",
+
+    approach:
+      "Used the Graduate Career Hub platform to systematically search and filter roles, refine CVs through feedback tools, and track applications with a structured workflow.",
+
+    outcome:
+      "Developed a consistent and disciplined application process, improved CV effectiveness, and increased preparedness for interviews and employer expectations.",
+
+    highlights: [
+      "Structured job tracking",
+      "CV feedback optimisation",
+      "Application workflow management",
+      "Improved interview readiness",
+    ],
+  }
 ];
 
 const allProjects = [featuredProject, ...supportingProjects];
