@@ -18,43 +18,78 @@ import {
 import { useEffect, useState } from "react";
 
 const featuredProject = {
-  id: "fake-news-detection",
-  title: "Fake News Detection using NLP",
-  category: "Flagship Project · Machine Learning · NLP",
-  image: "/fake-news.jpg",
-  imageAlt: "Fake News Detection project thumbnail",
+  id: "ecg-arrhythmia-classification",
+  title: "Edge Optimized ECG Arrhythmia Classification",
+  category: "Flagship Project · Healthcare Tech · Edge AI",
+  image: "/ecg.jpg",
+  imageAlt: "ECG Arrhythmia Classification project thumbnail",
   imageTransform: "scale(1.06)",
   imageHoverTransform: "scale(1.1) translateX(-1%)",
   shortDescription:
-    "NLP-based misinformation classification system using text preprocessing, TF-IDF feature extraction, and supervised learning models.",
+    "Edge optimized continuous ECG arrhythmia classification application featuring synthetic signal ingestion and automated clinical audit reporting.",
   impact:
-    "Achieved approximately 98% accuracy on a misinformation classification task and demonstrated how NLP can support scalable content verification.",
+    "Developed a practical healthcare-focused AI tool combining low-latency signal ingestion with automated compliance and audit reporting.",
   stack: [
     "Python",
-    "Scikit-learn",
+    "Machine Learning",
+    "Edge Computing",
+    "Healthcare Tech",
+    "Data Analysis",
     "Pandas",
-    "NLP",
-    "TF-IDF",
-    "Logistic Regression",
-    "Naive Bayes",
   ],
   github:
-    "https://github.com/junaidmir1212/Fake-News-Detection-on-Social-Media-Using-Natural-Language-Processing-NLP-",
+    "https://github.com/junaidmir1212/ECG-Arrhythmia-Classification.git",
   problem:
-    "Misinformation spreads rapidly across digital platforms, while manual verification is slow and difficult to scale.",
+    "Continuous cardiac monitoring requires rapid, reliable anomaly detection at the edge without heavy manual dependency or processing lag.",
   approach:
-    "Designed an NLP-based text classification workflow using preprocessing, feature extraction, and supervised learning models to distinguish fake from real content.",
+    "Engineered an edge-optimized continuous classification application integrating synthetic signal ingestion pipelines and automated audit generation for structured clinical reviews.",
   outcome:
-    "Achieved approximately 98% accuracy on a misinformation classification task and demonstrated how NLP can support scalable content verification.",
+    "Delivered a robust diagnostic prototype combining domain-specific healthcare requirements with high-performance edge processing reliability.",
   highlights: [
-    "~98% accuracy",
-    "TF-IDF feature extraction",
-    "Supervised model comparison",
-    "End-to-end prediction workflow",
+    "Real-time ECG processing",
+    "Synthetic signal ingestion",
+    "Automated clinical audit reports",
+    "Edge-optimized machine learning",
   ],
 };
 
 const supportingProjects = [
+{
+  id: "fake-news-detection",
+  title: "Fake News Detection using NLP",
+  category: "Flagship Project · Machine Learning · NLP",
+  image: "/fake-news.jpg",
+  imageAlt: "Fake News Detection project thumbnail",
+  imageTransform: "scale(1.06)",
+  imageHoverTransform: "scale(1.1) translateX(-1%)",
+  shortDescription:
+    "NLP-based misinformation classification system using text preprocessing, TF-IDF feature extraction, and supervised learning models.",
+  impact:
+    "Achieved approximately 98% accuracy on a misinformation classification task and demonstrated how NLP can support scalable content verification.",
+  stack: [
+    "Python",
+    "Scikit-learn",
+    "Pandas",
+    "NLP",
+    "TF-IDF",
+    "Logistic Regression",
+    "Naive Bayes",
+  ],
+  github:
+    "https://github.com/junaidmir1212/Fake-News-Detection-on-Social-Media-Using-Natural-Language-Processing-NLP-",
+  problem:
+    "Misinformation spreads rapidly across digital platforms, while manual verification is slow and difficult to scale.",
+  approach:
+    "Designed an NLP-based text classification workflow using preprocessing, feature extraction, and supervised learning models to distinguish fake from real content.",
+  outcome:
+    "Achieved approximately 98% accuracy on a misinformation classification task and demonstrated how NLP can support scalable content verification.",
+  highlights: [
+    "~98% accuracy",
+    "TF-IDF feature extraction",
+    "Supervised model comparison",
+    "End-to-end prediction workflow",
+  ],
+},
   {
     id: "event-ticketing-dapp",
     title: "Blockchain Event Ticketing DApp",
@@ -75,7 +110,7 @@ const supportingProjects = [
       "NFT Validation",
       "JavaScript",
     ],
-    github: "https://github.com/junaidmir1212/-Event-Ticketing-D-App",
+    github: "https://github.com/junaidmir1212/Event-Ticketing-D-App.git",
     problem:
       "Traditional event ticketing systems are vulnerable to duplication, fraud, and a lack of transparent ownership verification.",
     approach:
