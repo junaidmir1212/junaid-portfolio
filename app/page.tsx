@@ -289,7 +289,7 @@ const quickStats = [
   { label: "Degree", value: "BSc (Hons) CS" },
   { label: "Flagship Result", value: "~98% Accuracy" },
   { label: "Focus Areas", value: "AI · NLP · Blockchain" },
-  { label: "Availability", value: "Open to UK Roles" },
+  { label: "Availability", value: "Open to UK Roles And Collaborations" },
 ];
 
 const navItems = [
@@ -416,7 +416,7 @@ export default function Page() {
 
               <div className="highlights-row" style={{ marginTop: "1rem" }}>
                 <span className="highlight-pill">
-                  Open to Graduate Software Engineer roles
+                  Open to Graduate Software Engineer roles and collaborations
                 </span>
                 <span className="highlight-pill">
                   <MapPin size={14} style={{ marginRight: 6, verticalAlign: "middle" }} />
